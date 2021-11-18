@@ -1,3 +1,25 @@
-class services(models.Model):
+class Services(models.Model):
   title = models.Charfield(max_length=100)
   pets_name = models.Charfield(max_length=100)
+  
+  def __str__(self):
+        return str(self.name)
+
+
+class MSDS(models.Model):
+  service = models.ForeignKey(Services, null=True, on_delete=models.CASCADE)
+  name = model.Charfield(max_length=100)
+  
+  def __str__(self):
+        return str(self.name)
+
+
+class TC(models.Model):
+  service = models.ForeignKey(Services, null=True, on_delete=models.CASCADE)
+  name = model.Charfield(max_length=100)
+  
+  def __str__(self):
+        return str(self.name)
+ 
+  
+ 
