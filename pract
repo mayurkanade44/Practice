@@ -1,0 +1,3 @@
+class services(models.Model):
+  title = models.Charfield(max_length=100)
+  pets_name = models.Charfield(max_length=100)
