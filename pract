@@ -1,3 +1,6 @@
+https://stackoverflow.com/questions/66649074/django-rest-frame-work-send-email-from-contact-form
+https://stackoverflow.com/questions/53404738/how-to-send-email-with-django-rest-framwork
+
 from django.core.mail import EmailMessage
 
 class Services(models.Model):
@@ -31,15 +34,39 @@ class Mail(models.Model):
     return str(self.email)
     
     
-def send_email(request):
-    email = EmailMessage(
+
+class EmailSerailizer(serializers.Serializer):
+    email = serializers.CharField(max_length=50)
+    
+    
+    
+
+class MailSend(APIView):
+
+def post(self,request):
+
+    data = request.data
+    
+    serializer = EmailSerailizer(data)
+        if serializer.is_valid():
+          to = data['to']
+    
+           email = EmailMessage(
         'Title',
         'Body goes here',
         'my-email',
-        ['my-receive-email']
+        [to]
     )
-    email.attach_file(ConsultSerializer.file)
+    #email.attach_file(ConsultSerializer.file)
     email.send()
+    
+    serializer.save()
+    msg = {'msg': 'Email Has Been Sent'}
+    return Response(msg, status=status.HTTP_201_CREATED)
+    
+    
+    
+
     
  
        
