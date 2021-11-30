@@ -1,5 +1,7 @@
 https://stackoverflow.com/questions/66649074/django-rest-frame-work-send-email-from-contact-form
 https://stackoverflow.com/questions/53404738/how-to-send-email-with-django-rest-framwork
+https://stackoverflow.com/questions/45532965/django-rest-framework-serializer-without-a-model
+
 
 from django.core.mail import EmailMessage
 
